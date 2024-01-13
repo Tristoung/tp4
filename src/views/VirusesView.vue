@@ -80,7 +80,7 @@ export default {
     selected: []
   }),
   computed: {
-    ...mapState(['viruses']),
+    ...mapState('shop',['viruses']),
     checked() {
       let tab = []
       this.filterViruses.forEach(v => {
