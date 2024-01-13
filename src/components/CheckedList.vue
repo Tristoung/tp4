@@ -9,7 +9,8 @@
       <span v-for="(field, indexCol) in fields" :key="indexCol">
         {{item[field]}}
       </span>
-      <button v-if="itemButton && itemButton.show" color="grey" @click="$emit('item-button-clicked',indexRow)">{{itemButton.text}}</button>
+      <input v-if="itemAmount" type="number" v-model="item.amount" placeholder="Amount">
+      <button v-if="itemButton && itemButton.show" color="grey" @click="$emit('itemButtonClicked(indexRow)',indexRow)">{{itemButton.text}}</button>
     </p>
     <button v-if="listButton && listButton.show" color="green" @click="$emit('list-button-clicked')">{{listButton.text}}</button>
   </div>
@@ -25,10 +26,17 @@ export default {
     checked: Array, // le tableau des cases cochées
     itemButton: Object, // l'objet pour les boutons d'items
     listButton: Object, // l'objet pour le bouton de liste
+    itemAmount: Boolean,
   },
   data : () => {
     return {
     }
-  }
+  },
+  methods: {
+    itemButtonClicked(indexRow) {
+      const amount = this.itemAmount ? this.data[indexRow].amount : null;
+      this.$emit('item-button-clicked', { indexRow, amount });
+    },
+  },
 }
 </script>
