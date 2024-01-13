@@ -134,7 +134,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['getAllViruses']),
+    ...mapActions('shop',['getAllViruses']),
     changeSelection(idx) {
       // get the virus in the filtered list
       let v = this.filterViruses[idx]
