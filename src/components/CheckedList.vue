@@ -12,7 +12,7 @@
       <input v-if="itemAmount" type="number" v-model="item.amount" placeholder="Amount">
       <button v-if="itemButton && itemButton.show" color="grey" @click="$emit('itemButtonClicked(indexRow)',indexRow)">{{itemButton.text}}</button>
     </p>
-    <button v-if="listButton && listButton.show" color="green" @click="$emit('list-button-clicked')">{{listButton.text}}</button>
+    <button v-if="listButton && listButton.show" color="green" @click="$emit('listButtonClicked')">{{listButton.text}}</button>
   </div>
 </template>
 
@@ -36,6 +36,16 @@ export default {
     itemButtonClicked(indexRow) {
       const amount = this.itemAmount ? this.data[indexRow].amount : null;
       this.$emit('item-button-clicked', { indexRow, amount });
+    },
+    listButtonClicked() {
+      const selectedItemsValues = this.selectedItems.map(indexRow => {
+        const amount = this.itemAmount ? this.data[indexRow].amount : null;
+        return { indexRow, amount };
+      });
+
+      this.$emit('list-button-clicked', selectedItemsValues);
+
+      this.selectedItems = [];
     },
   },
 }
