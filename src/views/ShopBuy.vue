@@ -1,5 +1,6 @@
 <template>
     <div>
+      <h1>Boutique</h1>
       <div class="list-container">
         <ItemsList />
       </div>
