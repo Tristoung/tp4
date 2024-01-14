@@ -1,6 +1,6 @@
 <template>
     <div>
-      <h1>{{ welcomeMessage }}</h1>
+      <h1> Bienvenue au home </h1>
     </div>
   </template>
   
