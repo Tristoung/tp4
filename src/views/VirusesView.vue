@@ -84,9 +84,7 @@ export default {
     checked() {
       let tab = []
       this.filterViruses.forEach(v => {
-        // find the index of virus v in this.viruses
         let idx = this.viruses.findIndex(el => el == v)
-        // if idx is in selected, push true, else push false
         if (this.selected.includes(idx)) {
           tab.push(true)
         }
@@ -97,7 +95,6 @@ export default {
       return tab
     },
     filterVirusesByPrice() {
-      // no active filter => get whole list
       if (!this.filterPriceActive) return this.viruses
       let price = parseInt(this.priceFilter)
       if (isNaN(price)) return []
@@ -105,13 +102,11 @@ export default {
       return this.viruses
     },
     filterVirusesByName() {
-      // no active filter => get whole list
       if (!this.filterNameActive) return this.viruses
       if (this.nameFilter) return this.viruses.filter(v => v.name.includes(this.nameFilter))
       return this.viruses
     },
     filterVirusesByStock() {
-      // no active filter => get whole list
       if (!this.filterStockActive) return this.viruses
       if (this.stockFilter) return this.viruses.filter(v => v.stock > 0)
       return this.viruses
@@ -136,11 +131,8 @@ export default {
   methods: {
     ...mapActions('shop',['getAllViruses']),
     changeSelection(idx) {
-      // get the virus in the filtered list
       let v = this.filterViruses[idx]
-      // search its index in this.viruses
       let i = this.viruses.findIndex(el => el == v)
-      // if i is in selected, remove it
       let j = this.selected.findIndex(el => el === i)
       if (j !== -1) {
         this.selected.splice(j,1)
