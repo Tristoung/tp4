@@ -35,7 +35,3 @@ export default {
   },
 };
 </script>
-
-<style>
-/* Vos styles ici */
-</style>

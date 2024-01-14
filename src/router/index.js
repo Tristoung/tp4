@@ -24,16 +24,6 @@ const routes = [
           shopmain: () => import('../views/ShopBuy.vue')
         },
       },
-      // {
-      //   path: '/shop/pay/:idcmd?',
-      //   name: 'shoppay',
-      //   components: {
-      //     shopmain: () => import('../views/ShopPay.vue')
-      //   },
-      //   props: {
-      //     shopmain: true
-      //   },
-      // },
       {
         path: '/shop/login',
         name: 'shoplogin',
@@ -41,20 +31,6 @@ const routes = [
           shopmain: () => import('../views/ShopLoginView.vue')
         },
       },
-      // {
-      //   path: '/shop/logout',
-      //   name: 'shoplogout',
-      //   components: {
-      //     shopmain: () => import('../views/ShopLogout.vue')
-      //   },
-      // },
-      // {
-      //   path: '/shop/orders',
-      //   name: 'shoporders',
-      //   components: {
-      //     shopmain: () => import('../views/ShopOrders.vue')
-      //   },
-      // }
     ]
   },
 ]

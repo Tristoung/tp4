@@ -14,7 +14,6 @@ function shopLogin(data) {
   if ((!data.login) || (!data.password)) return {error: 1, status: 404, data: 'aucun login/pass fourni'}
   let user = shopusers.find(e => e.login === data.login)
   if (!user) return {error: 1, status: 404, data: 'login/pass incorrect'}
-  // générer un uid pour l'utilisateur si non existant
   if (!user.uuid) {
     user.uuid = uuidv4()
   }
@@ -36,7 +35,6 @@ function getAccountTransactions(number) {
   if (!number) return {error: 1, status: 404, data: 'aucun numéro de compte bancaire fourni'}
   let account = bankaccounts.find(a => a.number === number)
   if (!account) return {error: 1, status: 404, data: 'numéro de compte bancaire incorrect'}
-  // récupérer les transaction grâce à l'_id du compte
   let trans = transactions.filter(t => t.account === account._id)
   return {error: 0, status: 200, data: trans}
 }
